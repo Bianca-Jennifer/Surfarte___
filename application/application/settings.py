@@ -132,7 +132,7 @@ STATICFILES_DIRS = [
 ]
 
 #Configurações de autenticação
-LOGIN_REDIRECT_URL = 'Modelo'
+LOGIN_REDIRECT_URL = 'Página Inicial'
 LOGOUT_REDIRECT_URL = 'login'
 
 LOGIN_URL = 'login' #vai redirecionar caso tente acessar sem ter feito o login

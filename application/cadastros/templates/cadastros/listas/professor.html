@@ -3,43 +3,46 @@
 {% load static %}
 
 {% block main %}
-<h3>Lista de professores já registrados</h3>
-<a href="{% url 'cadastrar-professor' %}" class="btn btn-primary btn-sm">Cadastrar professor</a>
-<hr>
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilo_listas.css' %}">
 
-<div class="table-responsive">
-    <table class="table table-striped">
-        <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Metodologia</th>
-            <th>Email</th>
-            <th>Aulas Particulares</th>
-            <th>Opções</th>
-        </tr>
+<main>
+    <h3>Lista de professores já registrados</h3>
+    <a href="{% url 'cadastrar-professor' %}" class="btn btn-sm" id="btn_cadastrar">Cadastrar professor</a>
+    <hr>
 
-        {% for professor in object_list %}
-        <tr>
-            <td>{{ professor.pk }}</td>
-            <td>{{ professor.nome }}</td>
-            <td>{{ professor.metodologia }}</td>
-            <td>{{ professor.email }}</td>
-            <td>{{ professor.aula }}</td>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Metodologia</th>
+                <th>Email</th>
+                <th>Aulas Particulares</th>
+                <th>Opções</th>
+            </tr>
 
-            <td>
-               <a href="{% url 'editar-professor' professor.pk %}" class="btn btn-warning btn-sm" title="Editar">E</a>
-               <a href="{% url 'excluir-professor' professor.pk %}" class="btn btn-danger btn-sm" title="Excluir">X</a>
-            </td>
-        </tr>
+            {% for professor in object_list %}
+            <tr>
+                <td>{{ professor.pk }}</td>
+                <td>{{ professor.nome }}</td>
+                <td>{{ professor.metodologia }}</td>
+                <td>{{ professor.email }}</td>
+                <td>{{ professor.aula }}</td>
 
-        {% empty %}
-        <tr>
-            <td colspan="5">Nenhum campo registrado!</td>
-        </tr>
-        {% endfor %}
+                <td>
+                    <a href="{% url 'editar-professor' professor.pk %}" class="btn btn-warning btn-sm" title="Editar" id="btn-opcoes">E</a>
+                    <a href="{% url 'excluir-professor' professor.pk %}" class="btn btn-danger btn-sm" title="Excluir" id="btn-opcoes">X</a>
+                </td>
+            </tr>
 
-    </table>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nenhum campo registrado!</td>
+            </tr>
+            {% endfor %}
 
-</div>
+        </table>
+    </div>
+</main>
 
 {% endblock %}

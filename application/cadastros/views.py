@@ -9,54 +9,54 @@ class ProfessorCreate(CreateView):
     model = Professor
     fields = ['nome', 'metodologia', 'email', 'aula']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('Modelo')
+    success_url = reverse_lazy('Página Inicial')
 
 class PlanoCreate(CreateView):
     model = Plano
     fields = ['nome', 'preco', 'dias', 'horario', 'detalhes']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('Modelo')  
+    success_url = reverse_lazy('Página Inicial')  
 
 class AvaliacaoCreate(CreateView):
     model = Avaliacao
     fields = ['autor', 'plano', 'comentario']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('Modelo')            
+    success_url = reverse_lazy('Página Inicial')            
 
 # UPDATE #
 class ProfessorUpdate(UpdateView):
     model = Professor
     fields = ['nome', 'metodologia', 'email', 'aula']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('Modelo')
+    success_url = reverse_lazy('Página Inicial')
 
 class PlanoUpdate(UpdateView):
     model = Plano
     fields = ['nome', 'preco', 'dias', 'horario', 'detalhes']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('Modelo')      
+    success_url = reverse_lazy('Página Inicial')      
 
 class AvaliacaoUpdate(UpdateView):
     model = Avaliacao
     fields = ['autor', 'plano', 'comentario']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('Modelo')  
+    success_url = reverse_lazy('Página Inicial')  
 
 # DELETE #
 class ProfessorDelete(DeleteView):
     model = Professor
     template_name = 'cadastros/form-excluir.html' 
-    success_url = reverse_lazy('Modelo')  
+    success_url = reverse_lazy('Página Inicial')  
 
 class PlanoDelete(DeleteView):
     model = Plano
     template_name = 'cadastros/form-excluir.html' 
-    success_url = reverse_lazy('Modelo')    
+    success_url = reverse_lazy('Página Inicial')    
 
 class AvaliacaoDelete(DeleteView):
     model = Avaliacao
     template_name = 'cadastros/form-excluir.html' 
-    success_url = reverse_lazy('Modelo') 
+    success_url = reverse_lazy('Página Inicial') 
 
 # LISTAR #
 class ProfessorList(ListView):

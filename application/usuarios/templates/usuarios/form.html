@@ -3,20 +3,21 @@
 {% load crispy_forms_tags %}
 
 {% block main %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilo_form_login.css' %}">
 
-<div class="container">
-    <h3>Login-Autenticação</h3>
-
-    <p>Login.</p>
-    <hr>
-    <form action="" method="POST">
-        {% csrf_token %}
-
-        {{ form|crispy }}
-
-        <hr class="mt-3">
-        <button type="submit" class="btn btn-sucess">Entrar</button>
-
-    </form>
-</div>
+<main>
+    <div class="container">
+        <h3>Login-Autenticação</h3>
+        <hr>
+        <form action="" method="POST">
+            {% csrf_token %}
+    
+            {{ form|crispy }}
+    
+            <hr class="mt-3">
+            <button type="submit" class="btn" id="btn_entrar">Entrar</button>
+    
+        </form>
+    </div>
+</main>
 {% endblock %}
