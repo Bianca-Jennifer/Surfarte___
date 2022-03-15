@@ -1,5 +1,3 @@
-main {margin-bottom: 80px;}
-
 /* APRESENTAÇÃO */
 .apresentar{display: flex;flex-direction: column; align-items: center; background-color: #FCFCFC; margin-bottom: 100px;}
 .apresentar p {padding-top: 10px; padding-left: 50px;}
@@ -21,18 +19,17 @@ main {margin-bottom: 80px;}
 
 /* MODALIDADES */
 .modalidades {display: flex; flex-direction: row;}
-.modalidades img {width: 300px; height: 300px; border-radius: 50%; margin-right: 20px; margin-left: 60px;}
+.modalidades img {width: 300px; height: 300px; border-radius: 50%; margin-right: 20px; margin-left: 60px; padding-bottom: 10px;}
 .modalidades .texto_modalidades {display: flex; flex-direction: column; align-items: center;}
-.modalidades .texto_modalidades button {background-color: #0FC9E7; border-radius: 4px; color: #FCFCFC; border:none; width: 100px; height: 50px; margin-top: 20px; }
+.modalidades .texto_modalidades button {background-color: #0FC9E7; border-radius: 4px; color: #FCFCFC; border:none; width: 100px; height: 50px; margin-top: 20px;}
 .modalidades .texto_modalidades button:hover {opacity: 0.9;}
 .modalidades .texto_modalidades button a {font-size: 15px;}
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
-	.modalidades {flex-direction: column-reverse; justify-content: center;}
+	.modalidades {flex-direction: column-reverse; justify-content: center; align-items: center;}
+	.modalidades .texto_modalidades p {padding-left: 40px;}
     .modalidades button {margin-bottom: 20px;}
-    .modalidades img {margin-left: 40px;}
-	.modalidades .texto_modalidades p {padding-left: 50px;}
 }
 
 @media (max-width: 600px) {
@@ -40,6 +37,21 @@ main {margin-bottom: 80px;}
     .modalidades .foto_cor img {width: 150px; height: 150px;}
 }
 
+/* SOBRE NOS */
+.sobre_nos {display: flex; flex-direction: row; background-color: #0FC9E7;}
+.sobre_nos img {width: 600px; height: 400px; padding: 10px;}
+.sobre_nos .texto_sobre_nos {display: flex; flex-direction: column; align-items: center;}
+.sobre_nos .texto_sobre_nos p {padding: 10px; color:#FCFCFC;}
+.sobre_nos .texto_sobre_nos button {background-color: #FCFCFC; border-radius: 4px; border:none; width: 100px; height: 50px; margin-top: 20px;}
+.sobre_nos .texto_sobre_nos button:hover {opacity: 0.9;}
+.sobre_nos .texto_sobre_nos button a {color: #0FC9E7; font-size: 15px;}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+	.sobre_nos {flex-flow: row wrap; justify-content: center;}
+	.sobre_nos img {width: 450px;}
+	.sobre_nos .texto_sobre_nos button {margin-bottom: 10px;}
+}
 
 
 

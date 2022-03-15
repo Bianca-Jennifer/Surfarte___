@@ -1,0 +1,16 @@
+/* MODALIDADES */
+ul li {display: flex; flex-direction: row; padding: 10px;}
+ul li div {display: flex; flex-direction: column; align-items: center;}
+ul li img {width: 600px; height: 400px; padding-right: 10px;}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    ul li {flex-flow: row wrap; justify-content: center;}
+    ul li  div h1 {padding-top: 10px;}
+    .meio {flex-direction: column-reverse;}
+}
+
+@media (max-width: 600px) {
+    ul li img {width: 450px;}
+}
+
