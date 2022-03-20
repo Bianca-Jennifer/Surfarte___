@@ -11,7 +11,9 @@
 
 <main>
     <h3>Lista de professores já registrados</h3>
+    {% if user.groups.all.0.name == "administrador" %}
     <a href="{% url 'cadastrar-professor' %}" class="btn btn-sm" id="btn_cadastrar">Cadastrar professor</a>
+    {% endif %}
     <hr>
 
     <div class="table-responsive">
@@ -22,7 +24,9 @@
                 <th>Metodologia</th>
                 <th>Email</th>
                 <th>Aulas Particulares</th>
+                {% if user.groups.all.0.name == "administrador" %}
                 <th>Opções</th>
+                {% endif %}
             </tr>
 
             {% for professor in object_list %}
@@ -33,10 +37,12 @@
                 <td>{{ professor.email }}</td>
                 <td>{{ professor.aula }}</td>
 
+                {% if user.groups.all.0.name == "administrador" %}
                 <td>
                     <a href="{% url 'editar-professor' professor.pk %}" class="btn btn-warning btn-sm" title="Editar" id="btn-opcoes">E</a>
                     <a href="{% url 'excluir-professor' professor.pk %}" class="btn btn-danger btn-sm" title="Excluir" id="btn-opcoes">X</a>
                 </td>
+                {% endif %}
             </tr>
 
             {% empty %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User #Pode importar Group também
 
 # Create your models here.
 class Professor(models.Model):
@@ -40,7 +41,7 @@ class Plano(models.Model):
         return "{} ({})".format(self.nome, self.preco)
 
 class Avaliacao(models.Model):
-    autor = models.CharField(max_length=50)
+    autor = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
     plano = models.ForeignKey(Plano, on_delete=models.PROTECT)
     comentario = models.TextField(verbose_name='Comentário')
 

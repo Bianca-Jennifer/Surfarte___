@@ -10,7 +10,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/estilo_listas.css' %}">
 <main>
     <h3>Lista de planos já registrados</h3>
+    {% if user.groups.all.0.name == "administrador" %}
     <a href="{% url 'cadastrar-plano' %}" class="btn btn-sm" id="btn_cadastrar">Cadastrar plano</a>
+    {% endif %}
     <hr>
 
     <div class="table-responsive">
@@ -22,7 +24,9 @@
                 <th>Quant. de dias na semana</th>
                 <th>Horário</th>
                 <th>Detalhes</th>
+                {% if user.groups.all.0.name == "administrador" %}
                 <th>Opções</th>
+                {% endif %}
             </tr>
 
             {% for plano in object_list %}
@@ -33,10 +37,13 @@
                 <td>{{ plano.dias }}</td>
                 <td>{{ plano.horario }}</td>
                 <td>{{ plano.detalhes }}</td>
+
+                {% if user.groups.all.0.name == "administrador" %}
                 <td>
                     <a href="{% url 'editar-plano' plano.pk %}" class="btn btn-warning btn-sm" title="Editar" id="btn-opcoes">E</a>
                     <a href="{% url 'excluir-plano' plano.pk %}" class="btn btn-danger btn-sm" title="Excluir" id="btn-opcoes">X</a>
                 </td>
+                {% endif %}
             </tr>
 
             {% empty %}
