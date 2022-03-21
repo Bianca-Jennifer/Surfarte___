@@ -24,9 +24,16 @@ class PlanoCreate(GroupRequiredMixin, CreateView):
 class AvaliacaoCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     model = Avaliacao
-    fields = ['autor', 'plano', 'comentario']
+    fields = ['plano', 'comentario']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('Página Inicial')            
+    success_url = reverse_lazy('Página Inicial') 
+
+    def form_valid(self, form):
+        #Antes do super, não foi criado o objeto, nem salvo no banco
+        form.instance.autor = self.request.user
+        url = super().form_valid(form)
+        #Depois do super, o objeto está criado
+        return  url             
 
 # UPDATE #
 class ProfessorUpdate(GroupRequiredMixin, UpdateView):
