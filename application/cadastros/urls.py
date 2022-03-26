@@ -5,7 +5,7 @@ from django.urls import path
 from .views import  ProfessorCreate, PlanoCreate, AvaliacaoCreate
 from .views import  ProfessorUpdate, PlanoUpdate, AvaliacaoUpdate
 from .views import  ProfessorDelete, PlanoDelete, AvaliacaoDelete
-from .views import  ProfessorList,   PlanoList,   AvaliacaoList 
+from .views import  ProfessorList,   PlanoList,   AvaliacaoList, MinhaAvaliacaoList
 
 
 urlpatterns = [
@@ -24,4 +24,5 @@ urlpatterns = [
     path('exibir/professor/', ProfessorList.as_view(), name='exibir-professor'),
     path('exibir/plano/', PlanoList.as_view(), name='exibir-plano'),
     path('exibir/avaliacao/', AvaliacaoList.as_view(), name='exibir-avaliacao'),
+    path('exibir/minha_avaliacao/', MinhaAvaliacaoList.as_view(), name='exibir-minha_avaliacao'),
 ]

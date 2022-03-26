@@ -87,5 +87,14 @@ class PlanoList(ListView):
 
 class AvaliacaoList(ListView):
     model = Avaliacao
-    template_name = 'cadastros/listas/avaliacao.html'         
+    template_name = 'cadastros/listas/avaliacao.html'    
+
+class MinhaAvaliacaoList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
+    model = Avaliacao
+    template_name = 'cadastros/listas/minhas_avaliacoes.html' 
+
+    def get_queryset(self):
+        self.object_list = Avaliacao.objects.filter(autor=self.request.user)
+        return self.object_list                    
 
