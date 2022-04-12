@@ -55,7 +55,11 @@ class AvaliacaoUpdate(LoginRequiredMixin, UpdateView):
     model = Avaliacao
     fields = ['autor', 'plano', 'comentario']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('Página Inicial')  
+    success_url = reverse_lazy('Página Inicial') 
+
+    def get_object(self, queryset=None):
+        self.object = Avaliacao.objects.get(pk=self.kwargs['pk'], autor=self.request.user) #kwargs pega o valor que vc digitou na url(:pk)
+        return self.object 
 
 # DELETE #
 class ProfessorDelete(GroupRequiredMixin, DeleteView):
@@ -87,7 +91,8 @@ class PlanoList(ListView):
 
 class AvaliacaoList(ListView):
     model = Avaliacao
-    template_name = 'cadastros/listas/avaliacao.html'    
+    template_name = 'cadastros/listas/avaliacao.html'   
+ 
 
 class MinhaAvaliacaoList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
@@ -96,5 +101,4 @@ class MinhaAvaliacaoList(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         self.object_list = Avaliacao.objects.filter(autor=self.request.user)
-        return self.object_list                    
-
+        return self.object_list 
