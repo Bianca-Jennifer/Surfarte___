@@ -14,6 +14,12 @@ class ProfessorCreate(GroupRequiredMixin, CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('Página Inicial')
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        context['titulo'] = "Cadastro de Professor" 
+        return context
+
 class PlanoCreate(GroupRequiredMixin, CreateView):
     group_required = u"administrador"
     model = Plano
@@ -21,12 +27,24 @@ class PlanoCreate(GroupRequiredMixin, CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('Página Inicial')  
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        context['titulo'] = "Cadastro de Plano" 
+        return context
+
 class AvaliacaoCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     model = Avaliacao
     fields = ['plano', 'comentario']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('Página Inicial') 
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        context['titulo'] = "Cadastro de Avaliação" 
+        return context
 
     def form_valid(self, form):
         #Antes do super, não foi criado o objeto, nem salvo no banco
@@ -43,12 +61,24 @@ class ProfessorUpdate(GroupRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('Página Inicial')
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        context['titulo'] = "Editar-Professor" 
+        return context
+
 class PlanoUpdate(GroupRequiredMixin, UpdateView):
     group_required = u"administrador"
     model = Plano
     fields = ['nome', 'preco', 'dias', 'horario', 'detalhes']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('Página Inicial')      
+    success_url = reverse_lazy('Página Inicial')    
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        context['titulo'] = "Editar-Plano" 
+        return context  
 
 class AvaliacaoUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
@@ -56,6 +86,12 @@ class AvaliacaoUpdate(LoginRequiredMixin, UpdateView):
     fields = ['autor', 'plano', 'comentario']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('Página Inicial') 
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+
+        context['titulo'] = "Editar-Avaliação" 
+        return context
 
     def get_object(self, queryset=None):
         self.object = Avaliacao.objects.get(pk=self.kwargs['pk'], autor=self.request.user) #kwargs pega o valor que vc digitou na url(:pk)
