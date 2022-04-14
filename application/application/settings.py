@@ -136,3 +136,7 @@ LOGIN_REDIRECT_URL = 'Página Inicial'
 LOGOUT_REDIRECT_URL = 'login'
 
 LOGIN_URL = 'login' #vai redirecionar caso tente acessar sem ter feito o login
+
+#Arquivos de Media/Upload
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/uploads/'

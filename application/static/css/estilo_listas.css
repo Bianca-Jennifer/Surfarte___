@@ -1,5 +1,7 @@
 main {margin: 20px;}
 #btn_cadastrar {background-color: #0FC9E7; color: #FCFCFC;}
+main .table-responsive table tr .imagem-professor {font-size: 5px; color: black;}
+.imagem-professor {color: pink !important}
 
 @media (max-width: 600px) {
     #btn-opcoes {margin-bottom: 5px;}    

@@ -15,6 +15,7 @@ class Professor(models.Model):
         choices=yes_or_no,
         verbose_name='Aulas particulares?'
     )
+    foto = models.FileField(upload_to='imgs/', blank=True)
     def __str__(self):
         return "{} ({})".format(self.nome, self.metodologia)
 

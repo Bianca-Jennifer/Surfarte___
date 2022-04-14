@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/estilo_listas.css' %}">
 
 <main>
+    <a href="#">Socorro</a>
     <h3>Lista de professores já registrados</h3>
     {% if user.groups.all.0.name == "administrador" %}
     <a href="{% url 'cadastrar-professor' %}" class="btn btn-sm" id="btn_cadastrar">Cadastrar professor</a>
@@ -24,6 +25,7 @@
                 <th>Metodologia</th>
                 <th>Email</th>
                 <th>Aulas Particulares</th>
+                <th>Imagem</th>
                 {% if user.groups.all.0.name == "administrador" %}
                 <th>Opções</th>
                 {% endif %}
@@ -36,6 +38,11 @@
                 <td>{{ professor.metodologia }}</td>
                 <td>{{ professor.email }}</td>
                 <td>{{ professor.aula }}</td>
+                {% if professor.foto %}
+                    <td><a href="{{ professor.foto.url }}" class="imagem-professor" style="color: black; font-size: 15px;">Ver</a></td>
+                {% else %}
+                    <td>Nothing</td>
+                {% endif %}  
 
                 {% if user.groups.all.0.name == "administrador" %}
                 <td>

@@ -10,7 +10,7 @@ from braces.views import GroupRequiredMixin
 class ProfessorCreate(GroupRequiredMixin, CreateView):
     group_required = u"administrador"
     model = Professor
-    fields = ['nome', 'metodologia', 'email', 'aula']
+    fields = ['nome', 'metodologia', 'email', 'aula', 'foto']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('Página Inicial')
 

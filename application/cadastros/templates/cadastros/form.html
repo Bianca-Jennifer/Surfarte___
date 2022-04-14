@@ -14,7 +14,7 @@
         <h3>{{ titulo }}</h3>
     
         <hr>
-        <form method="post" action="">
+        <form method="post" action="" enctype="multipart/form-data">
             {% csrf_token %}
     
             {{ form|crispy }}
