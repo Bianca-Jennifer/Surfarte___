@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cadastros.apps.CadastrosConfig',
     'crispy_forms',
     'usuarios.apps.UsuariosConfig',
+    'django_cleanup.apps.CleanupConfig',
     #nome do módulo.app.PaginasConfig
 ]
 

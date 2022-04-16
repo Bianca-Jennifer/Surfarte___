@@ -5,6 +5,7 @@ from django.contrib.auth.models import User, Group #dá pra importar grupo
 from .forms import UsuarioForm
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
+from .models import Perfil
 
 # Create your views here.
 class UsuarioCreate(CreateView):
@@ -25,6 +26,9 @@ class UsuarioCreate(CreateView):
         #Depois do super, o objeto está criado
         self.object.groups.add(grupo)
         self.object.save()
+
+        Perfil.objects.create(usuario=self.object)
+
         return  url             
 
             
