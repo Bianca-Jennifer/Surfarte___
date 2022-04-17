@@ -1,6 +1,6 @@
 from re import U
 from unicodedata import name
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.models import User, Group #dá pra importar grupo
 from .forms import UsuarioForm
 from django.urls import reverse_lazy
@@ -31,4 +31,14 @@ class UsuarioCreate(CreateView):
 
         return  url             
 
-            
+class PerfilUpdate(UpdateView):
+    template_name = "cadastros/form.html"
+    model = Perfil
+    fields = ['nome_completo', 'cpf', 'telefone']
+    success_url = reverse_lazy('Página Inicial')
+
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Perfil, usuario=self.request.user)
+        return self.object
+
+              

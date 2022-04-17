@@ -73,5 +73,11 @@
 		</footer>
         {%endblock %}
 
+		<script src="{% static 'js/boostrap_min.js' %}"></script>
+        <script src="{% static 'js/jquery-3.6.0.min(1).js' %}"></script>
+        <!--Script para cada página, tem que ser depois da importação da de cima-->
+        {% block scripts %}
+        {% endblock %}	
+
 	</body>
 </html>	
