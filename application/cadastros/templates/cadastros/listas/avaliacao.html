@@ -18,18 +18,21 @@
     <hr>
 
     <div class="table-responsive">
-        <table class="table table-striped">
-            <tr>
-                <th>Id</th>
-                <th>Autor</th>
-                <th>Plano</th>
-                <th>Comentário</th>
-                {% if user.groups.all.0.name == "administrador" %}
-                <th>Opções</th>
-                {% endif %}
-            </tr>
-
-            {% for avaliacao in object_list %}
+        <table class="table table-striped" id="tabela-listar">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Autor</th>
+                    <th>Plano</th>
+                    <th>Comentário</th>
+                    {% if user.groups.all.0.name == "administrador" %}
+                    <th>Opções</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for avaliacao in object_list %}
             <tr>
                 <td>{{ avaliacao.pk }}</td>
                 <td>{{ avaliacao.autor }}</td>
@@ -48,9 +51,56 @@
                 <td colspan="5">Nenhum campo registrado!</td>
             </tr>
             {% endfor %}
+            </tbody>
+            
 
         </table>
     </div>
 </main>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    //$("seletor").acao(); //seletor terá a ação disparada
+
+    //executar algo de acordo com sua ação
+    //$("seletor").evento(function(){
+        //ações ficam aqui da função, pois caso queria executar vários coisas por causa do evento
+    //});
+
+    $().ready(function(){
+        $('#tabela-listar').DataTable({
+        responsive: true,
+        // "bSort": false,
+        "aaSorting": [],
+        "pageLength": 50,
+        "language": {
+            "decimal": "",
+            "emptyTable": "Sem dados disponíveis",
+            "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+            "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+            "infoFiltered": "(filtrado de _MAX_ registos no total)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ registos",
+            "loadingRecords": "A carregar dados...",
+            "processing": "A processar...",
+            "search": "Procurar:",
+            "zeroRecords": "Não foram encontrados resultados",
+            "paginate": {
+                "first": "Primeiro",
+                "last": "Último",
+                "next": "Seguinte",
+                "previous": "Anterior"
+            },
+            "aria": {
+                "sortAscending": ": ordem crescente",
+                "sortDescending": ": ordem decrescente"
+            }
+        }
+    });
+            
+    });
+</script>
 {% endblock %}
 

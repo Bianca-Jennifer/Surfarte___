@@ -14,6 +14,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/51f7ea6787.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+		<!--Tem que ser depois do bootstrap- Tables-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.css"/>
 	</head>
 
 	<body>
@@ -33,7 +35,7 @@
                 		</button>
                 		<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   			<li><a class="dropdown-item" href="#">Meus dados</a></li>
-                  			<li><a class="dropdown-item" href="#">Alterar meus dados</a></li>
+                  			<li><a class="dropdown-item" href="{% url 'editar-dados' %}">Alterar meus dados</a></li>
                   			<li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
                 		</ul>
 	                </div>
@@ -74,10 +76,11 @@
         {%endblock %}
 
 		<script src="{% static 'js/boostrap_min.js' %}"></script>
-        <script src="{% static 'js/jquery-3.6.0.min(1).js' %}"></script>
+        <script src="{% static 'js/jquery-3.6.0.min (1).js' %}"></script>
+		<!--tables-->
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.js"></script>
         <!--Script para cada página, tem que ser depois da importação da de cima-->
         {% block scripts %}
-        {% endblock %}	
-
+		{% endblock %}
 	</body>
 </html>	
