@@ -1,2 +1,7 @@
-# Surfarte___
-Website sobre aulas de surf com HTML/CSS, Django e Bootstrap.
+#Surfarte 
+Site sobre aulas de surf com HTML/CSS,Python(DJANGO) e Bootstrap.
+
+#VERSÃO
+Django-2.2.12
+
+#AMBIENTE VIRTUAL
