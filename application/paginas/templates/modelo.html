@@ -34,8 +34,10 @@
                   			<span>{{ request.user }}</span>
                 		</button>
                 		<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							{% if request.user.is_authenticated and not request.user.is_superuser %}
                   			<li><a class="dropdown-item" href="#">Meus dados</a></li>
                   			<li><a class="dropdown-item" href="{% url 'editar-dados' %}">Alterar meus dados</a></li>
+							{% endif %}
                   			<li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
                 		</ul>
 	                </div>
